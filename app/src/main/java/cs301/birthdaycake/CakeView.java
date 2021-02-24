@@ -127,31 +127,8 @@ public class CakeView extends SurfaceView {
         canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, cakePaint);
 
         // lab 3 checkpoint 4
-        //Now a candle in the center
-        if(cakeModel.numCandles == 1) {
-            drawCandle(canvas, cakeLeft + cakeWidth / 2 - candleWidth / 2, cakeTop);
-        }
-        else if (cakeModel.numCandles == 2) {
-            drawCandle(canvas, cakeLeft + cakeWidth / 3 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + (cakeWidth / 3*2) - candleWidth / 2, cakeTop);
-        }
-        else if (cakeModel.numCandles == 3) {
-            drawCandle(canvas, cakeLeft + cakeWidth / 4 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 4*2 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 4*3 - candleWidth / 2, cakeTop);
-        }
-        else if (cakeModel.numCandles == 4) {
-            drawCandle(canvas, cakeLeft + cakeWidth / 5 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 5*2 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 5*3 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 5*4 - candleWidth / 2, cakeTop);
-        }
-        else if (cakeModel.numCandles == 5) {
-            drawCandle(canvas, cakeLeft + cakeWidth / 6 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 6*2 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 6*3 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 6*4 - candleWidth / 2, cakeTop);
-            drawCandle(canvas, cakeLeft + cakeWidth / 6*5 - candleWidth / 2, cakeTop);
+        for(int i = 1; i<= cakeModel.numCandles; i++){
+            drawCandle(canvas, cakeLeft + cakeWidth * i/(1+cakeModel.numCandles) - candleWidth / 2, cakeTop);
         }
 
     }//onDraw
