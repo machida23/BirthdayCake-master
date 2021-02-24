@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Blow Out" />
+                android:text="Extinguish" />
 
             <Button
                 android:id="@+id/button2"
