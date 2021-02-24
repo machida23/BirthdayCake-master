@@ -16,6 +16,8 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    // lab 4 checkpoint 2
+    Paint coordinates = new Paint();
 
     Paint balloonColor = new Paint();
     Paint stringColor = new Paint();
@@ -67,6 +69,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        // lab 4 checkpoint 2
+        coordinates.setColor(Color.RED);
 
         balloonColor.setColor(Color.BLUE);
         stringColor.setColor(Color.BLACK);
@@ -103,7 +107,6 @@ public class CakeView extends SurfaceView {
                 canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
         }
     }
-
 
     /**
      * onDraw is like "paint" in a regular Java program.  While a Canvas is
@@ -149,6 +152,12 @@ public class CakeView extends SurfaceView {
             canvas.drawOval(cakeModel.touchX - (balloonWidth / 2), cakeModel.touchY - (balloonHeight / 2),
                     cakeModel.touchX + (balloonWidth / 2), cakeModel.touchY + (balloonHeight / 2), balloonColor);
         }
+
+        // lab 4 checkpoint 2
+       if(cakeModel.hasTouched == true) {
+           coordinates.setTextSize(50);
+           canvas.drawText((cakeModel.touchX + ", " + cakeModel.touchY), 1750, 700, coordinates);
+       }
 
     }//onDraw
 

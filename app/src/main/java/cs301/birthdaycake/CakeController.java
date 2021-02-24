@@ -1,7 +1,8 @@
 package cs301.birthdaycake;
 
 import android.graphics.Canvas;
-import android.util.Log;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 
 public class CakeController implements View.OnClickListener, CompoundButton.OnCheckedChangeListener,
-        SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
+        SeekBar.OnSeekBarChangeListener, View.OnTouchListener{
     private CakeView cakeView;
     private CakeModel cakeModel;
 
@@ -18,6 +19,7 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
     public CakeController(CakeView newCakeView) {
         cakeView = newCakeView;
         cakeModel = cakeView.getCakeModel();
+
 
     }
 
@@ -52,19 +54,16 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
 
     }
 
+    // Lab 4 CP2
     @Override
-    public boolean onTouch(View v, MotionEvent motionEvent) {
-
-        if(motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN) {
-            // Find the coordinate of the touch event
-            cakeModel.touchX =  motionEvent.getX();
-            cakeModel.touchY =  motionEvent.getY();
-
-            cakeModel.hasTouched = true;
-
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if((motionEvent.getActionMasked()) == motionEvent.ACTION_DOWN) {
+            cakeModel.touchX = (int) motionEvent.getX();
+            cakeModel.touchY = (int) motionEvent.getY();
             cakeView.invalidate();
+            cakeModel.hasTouched = true;
             return true;
-        }
+       }
 
         return false;
     }
